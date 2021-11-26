@@ -34,6 +34,8 @@
     "vite": "^2.5.10"
   },
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@rollup/pluginutils": "^4.1.1",
     "@types/hash-sum": "^1.0.0",
     "@vitejs/plugin-vue": "^1.9.3",
@@ -59,34 +61,27 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-stage"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "ignore": [
-      "node_modules",
-      "dist",
-      "example/dist"
+    "*.js": [
+      "prettier --write"
     ],
-    "linters": {
-      "*.js": [
-        "prettier --write"
-      ],
-      "*.ts": [
-        "prettier --write"
-      ],
-      "*.tsx": [
-        "prettier --write"
-      ],
-      "*.vue": [
-        "prettier --parser=vue --write"
-      ],
-      "*.css": [
-        "prettier --write"
-      ],
-      "*.md": [
-        "prettier --write --parser markdown --prose-wrap never"
-      ]
-    }
+    "*.ts": [
+      "prettier --write"
+    ],
+    "*.tsx": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "prettier --parser=vue --write"
+    ],
+    "*.css": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write --parser markdown --prose-wrap never"
+    ]
   }
 }
