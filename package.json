@@ -10,7 +10,8 @@
   "keywords": [
     "vite",
     "vite-plugin",
-    "markdown-it"
+    "marked",
+    "naive-ui"
   ],
   "files": [
     "dist"
@@ -23,9 +24,10 @@
   },
   "scripts": {
     "dev": "npm run build -- --watch",
-    "dev:example": "npm -C example run dev",
-    "build:example": "npm -C example run build",
-    "build": "tsup src/index.ts --dts --format cjs,esm"
+    "dev:example": "cp ./README.md ./example/src &&  npm run dev & npm -C example run dev",
+    "build:example": "cp ./README.md ./example/src && npm -C example run build",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "naive-ui": "^2.20.3",
@@ -38,7 +40,10 @@
     "@vue/compiler-sfc": "^3.2.22",
     "cross-env": "^7.0.3",
     "highlight.js": "^11.3.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.0",
     "naive-ui": "^2.21.0",
+    "prettier": "^2.2.1",
     "rollup": "^2.59.0",
     "slash": "^4.0.0",
     "source-map": "^0.6.1",
@@ -46,35 +51,42 @@
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vue": "^3.2.22",
-    "vue-tsc": "^0.3.0",
-    "prettier": "^2.2.1",
-    "lint-staged": "^11.2.0"
+    "vue-tsc": "^0.3.0"
   },
   "dependencies": {
     "@types/marked": "^4.0.1",
     "marked": "^4.0.3"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-stage"
+    }
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write"
+    "ignore": [
+      "node_modules",
+      "dist",
+      "example/dist"
     ],
-    "*.ts": [
-      "prettier --write"
-    ],
-    "*.tsx": [
-      "prettier --write"
-    ],
-    "*.vue": [
-      "prettier --parser=vue --write"
-    ],
-    "*.css": [
-      "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write --parser markdown --prose-wrap never"
-    ]
+    "linters": {
+      "*.js": [
+        "prettier --write"
+      ],
+      "*.ts": [
+        "prettier --write"
+      ],
+      "*.tsx": [
+        "prettier --write"
+      ],
+      "*.vue": [
+        "prettier --parser=vue --write"
+      ],
+      "*.css": [
+        "prettier --write"
+      ],
+      "*.md": [
+        "prettier --write --parser markdown --prose-wrap never"
+      ]
+    }
   }
 }

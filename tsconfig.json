@@ -11,5 +11,10 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"]
   },
-  "include": ["example/src/**/*.ts", "example/src/**/*.d.ts", "example/src/**/*.tsx", "example/src/**/*.vue"]
+  "include": [
+    "example/src/**/*.ts",
+    "example/src/**/*.d.ts",
+    "example/src/**/*.tsx",
+    "example/src/**/*.vue"
+  ]
 }
