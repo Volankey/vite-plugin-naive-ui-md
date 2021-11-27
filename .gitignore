@@ -6,3 +6,5 @@ dist-ssr
 .vscode
 pnpm-lock.yaml
 dist
+package-lock.json
+*.log

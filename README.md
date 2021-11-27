@@ -6,8 +6,22 @@ Markdown for Vite with [Naive UI](https://naiveui.com) Styles.
 
 ### Install
 
-```
+With NPM:
+
+```ts
 npm install vite-plugin-naive-ui-md -D
+```
+
+With Yarn:
+
+```ts
+yarn add vite-plugin-naive-ui-md -D
+```
+
+With PNPM:
+
+```ts
+pnpm install vite-plugin-naive-ui-md -D
 ```
 
 ### vite.config.ts
