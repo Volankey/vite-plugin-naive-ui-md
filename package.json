@@ -24,7 +24,7 @@
   },
   "scripts": {
     "dev": "npm run build -- --watch",
-    "dev:example": "cp ./README.md ./example/src &&  npm run dev & npm -C example run dev",
+    "dev:example": "cp ./README.md ./example/src &&  npm run dev &  npm -C example run dev",
     "build:example": "cp ./README.md ./example/src && npm -C example run build",
     "build": "tsup src/index.ts --dts --format cjs,esm",
     "prepublishOnly": "npm run build"
@@ -65,20 +65,11 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write"
-    ],
-    "*.ts": [
-      "prettier --write"
-    ],
-    "*.tsx": [
+    "*.{js,ts,tsx,css}": [
       "prettier --write"
     ],
     "*.vue": [
       "prettier --parser=vue --write"
-    ],
-    "*.css": [
-      "prettier --write"
     ],
     "*.md": [
       "prettier --write --parser markdown --prose-wrap never"
