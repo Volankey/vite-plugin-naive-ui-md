@@ -34,8 +34,7 @@ Task list
 
 ## 2. 图片与链接
 
-图片:
-![leanote](./assets/y.png)
+图片: ![leanote](./assets/y.png)
 
 链接: [这是去往 NaiveUI 的链接](https://naiveui.com)
 
@@ -93,6 +92,10 @@ class Employee:
         Employee.empCount += 1
 ```
 
+# import code blocks
+
+@[code](./foo.js)
+
 # 5. Markdown 扩展
 
 Markdown 扩展支持:
@@ -121,11 +124,9 @@ Markdown 扩展支持:
 
 ## 5.2 定义型列表
 
-名词 1
-: 定义 1（左侧有一个可见的冒号和四个不可见的空格）
+名词 1 : 定义 1（左侧有一个可见的冒号和四个不可见的空格）
 
-代码块 2
-: 这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）
+代码块 2 : 这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）
 
         代码块（左侧有八个不可见的空格）
 

@@ -1,16 +1,18 @@
 import { createRenderer } from "./createMdRender";
-import { Parser, Lexer } from "marked";
+import { Parser, Lexer, marked } from "marked";
 import { Options } from "./interface";
+import { importCodeBlocks } from "./plugins/import-code-block/tokenizer";
+
+marked.use(importCodeBlocks);
 
 export async function convertMd2VueTemplateSource(
   text: string,
   options?: Options
 ) {
   const naiveComponentsDeps: Set<string> = new Set();
-  const parser = new Parser({
-    gfm: true,
-    renderer: createRenderer(naiveComponentsDeps, options),
-  });
+  marked.parser.renderer = createRenderer(naiveComponentsDeps, options);
+  marked.parser.gfm = true;
+  const parser = marked.parser;
   const lexer = new Lexer();
 
   const tokens = lexer.lex(text);
