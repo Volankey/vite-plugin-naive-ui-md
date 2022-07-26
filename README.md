@@ -75,15 +75,21 @@ export default defineConfig({
 });
 ```
 
-### Example
+#### Basic usage
 
 ```md
 @[code](./foo.js)
 ```
 
-### Output
+@[code](./foo.js)
 
-@[code javascript](./foo.js)
+#### Intercept code line range
+
+```md
+@[code{1-8} typescript](./env.d.ts)
+```
+
+@[code{1-8} typescript](./env.d.ts)
 
 ### TypeScript Shim
 
