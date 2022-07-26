@@ -92,9 +92,39 @@ class Employee:
         Employee.empCount += 1
 ```
 
-# import code blocks
+# 导入的代码块
 
+If you want to use, you should add `createCodeBlockRule` to your vite.config.ts
+
+```typescript
+export default defineConfig({
+  root: __dirname,
+  plugins: [
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
+    naiveUIMD({
+      hljs: hljs,
+      wrapCodeWithCard: true,
+      markedSetup: (marked, ctx) => {
+        marked.use({
+          extensions: [createCodeBlockRule(ctx.filepath)],
+        });
+      },
+    }),
+  ],
+});
+```
+
+### 示例
+
+```md
 @[code](./foo.js)
+```
+
+### 输出
+
+@[code javascript](./foo.js)
 
 # 5. Markdown 扩展
 
