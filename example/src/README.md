@@ -63,6 +63,48 @@ export default defineConfig({
 </style>
 ```
 
+### Import Code Blocks
+
+If you want to use, you should add [createCodeBlockRule](./src/extensions/import-code-block/index.ts) to your vite.config.ts
+
+```typescript
+import naiveUIMD, { createCodeBlockRule } from "vite-plugin-naive-ui-md";
+
+export default defineConfig({
+  root: __dirname,
+  plugins: [
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
+    naiveUIMD({
+      hljs: hljs,
+      wrapCodeWithCard: true,
+      markedSetup: (marked, ctx) => {
+        marked.use({
+          extensions: [createCodeBlockRule(ctx.filepath)],
+        });
+      },
+    }),
+  ],
+});
+```
+
+#### Basic usage
+
+```md
+@[code](./foo.js)
+```
+
+@[code](./foo.js)
+
+#### Intercept code line range
+
+```md
+@[code{1-8} typescript](./env.d.ts)
+```
+
+@[code{1-8} typescript](./env.d.ts)
+
 ### TypeScript Shim
 
 ```ts

@@ -79,12 +79,11 @@ export function createRenderer(
       return `<n-p>${text}</n-p>`;
     },
     link(href, _, text) {
+      naiveComponentsDeps.add("NA");
       if (href && /^(http:|https:)/.test(href)) {
-        naiveComponentsDeps.add("NA");
-
         return `<n-a href="${href}" title="${text}" target="_blank">${text}</n-a>`;
       }
-      return `<router-link to="${href}" title="${text}" #="{ navigate, href }" custom><n-a :href="href" @click="navigate">${text}</n-a></router-link>`;
+      return `<n-a href="${href}">${text}</n-a>`;
     },
     list(body, ordered, start) {
       naiveComponentsDeps.add("NOl");

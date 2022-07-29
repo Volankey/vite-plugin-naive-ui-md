@@ -34,8 +34,7 @@ Task list
 
 ## 2. 图片与链接
 
-图片:
-![leanote](./assets/y.png)
+图片: ![leanote](./assets/y.png)
 
 链接: [这是去往 NaiveUI 的链接](https://naiveui.com)
 
@@ -93,6 +92,40 @@ class Employee:
         Employee.empCount += 1
 ```
 
+# 导入的代码块
+
+If you want to use, you should add `createCodeBlockRule` to your vite.config.ts
+
+```typescript
+export default defineConfig({
+  root: __dirname,
+  plugins: [
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
+    naiveUIMD({
+      hljs: hljs,
+      wrapCodeWithCard: true,
+      markedSetup: (marked, ctx) => {
+        marked.use({
+          extensions: [createCodeBlockRule(ctx.filepath)],
+        });
+      },
+    }),
+  ],
+});
+```
+
+### 示例
+
+```md
+@[code](./foo.js)
+```
+
+### 输出
+
+@[code javascript](./foo.js)
+
 # 5. Markdown 扩展
 
 Markdown 扩展支持:
@@ -121,11 +154,9 @@ Markdown 扩展支持:
 
 ## 5.2 定义型列表
 
-名词 1
-: 定义 1（左侧有一个可见的冒号和四个不可见的空格）
+名词 1 : 定义 1（左侧有一个可见的冒号和四个不可见的空格）
 
-代码块 2
-: 这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）
+代码块 2 : 这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）
 
         代码块（左侧有八个不可见的空格）
 
