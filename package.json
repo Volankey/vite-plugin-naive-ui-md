@@ -1,12 +1,15 @@
 {
   "name": "vite-plugin-naive-ui-md",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "Volankey",
   "description": "Naive UI Styles Markdown for Vite",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "url": "https://github.com/Volankey/vite-plugin-naive-ui-md"
+  },
   "keywords": [
     "vite",
     "vite-plugin",
