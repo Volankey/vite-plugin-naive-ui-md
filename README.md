@@ -2,7 +2,7 @@
 
 Markdown for Vite with [Naive UI](https://naiveui.com) Styles.
 
-[Example](https://naive-md.volankey.site)
+[Example](https://vite-naive-md.netlify.app)
 
 ### Install
 
